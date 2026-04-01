@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abstracciones.Interfaces.Reglas
 {
-    public interface IConfiguracion
+    public interface IVehiculoReglas
     {
-        string ObtenerMetodo(string seccion, string nombre);
-        public string ObtenerValor(string llave);
+        Task<bool> RevisionEsValida(string placa);
+
     }
 }
