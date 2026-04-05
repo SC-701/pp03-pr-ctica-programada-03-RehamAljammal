@@ -1,6 +1,6 @@
 ﻿using Abstracciones.Interfaces.Reglas;
 using Abstracciones.Interfaces.Servicios;
-using Microsoft.IdentityModel.Tokens;
+using Abstracciones.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,6 @@ namespace Reglas
     public class RegistroReglas : IRegistroReglas
     {
         private readonly IRegistroServicio _registroServicio;
-
         private readonly IConfiguracion _configuracion;
 
         public RegistroReglas(IRegistroServicio registroServicio, IConfiguracion configuracion)
@@ -24,7 +23,7 @@ namespace Reglas
         public async Task<bool> VehiculoEstaRegistrado(string placa, string email)
         {
             var resultadoRegistro = await _registroServicio.Obtener(placa);
-            return (resultadoRegistro != null &&resultadoRegistro.Email == email);
+            return (resultadoRegistro != null && resultadoRegistro.Email == email);
         }
     }
 }
